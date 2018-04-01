@@ -51,6 +51,7 @@ def go_api(img,access_token):
 def led():
     RPi.GPIO.output(18, True)
 
+
 #通过蓝牙对Arduino发出开门指令
 def send():
     serial.write(bytes('aaa', 'UTF-8'))
@@ -70,6 +71,7 @@ def try_api(img,access_token):
             pass
     except:
         pass
+        asdasdasd
 
 
 if __name__ == '__main__':
