@@ -71,7 +71,6 @@ def try_api(img,access_token):
             pass
     except:
         pass
-        asdasdasd
 
 
 if __name__ == '__main__':
@@ -81,6 +80,7 @@ if __name__ == '__main__':
     RPi.GPIO.setup(18, RPi.GPIO.OUT)
     port = "/dev/rfcomm0"
     serial = serial.Serial(port,9600)
+    count=0
     #程序运行配置命令--------------------------------
     camera = PiCamera()
     access_token=getaccess_token()
@@ -88,3 +88,9 @@ if __name__ == '__main__':
         take_picture()
         img=open_pic()
         try_api(img,access_token)
+        count=count+1
+        print(count)
+        #加入自动重启命令，防止程序运行时间过长死机
+        if count == 2000 :
+            os.system('sudo reboot')
+            count = 0
