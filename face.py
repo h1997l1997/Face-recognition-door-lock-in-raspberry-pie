@@ -54,7 +54,7 @@ def led():
 
 #通过蓝牙对Arduino发出开门指令
 def send():
-    serial.write(bytes('aaa', 'UTF-8'))
+    serial.write(bytes(2, 'UTF-8'))
     print('发出指令成功')
     serial.flushInput()
 
